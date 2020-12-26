@@ -5,13 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GebruikersComponent } from './pages/gebruikers/gebruikers.component';
 import { MainLayoutComponent } from './pages/main-layout/main-layout.component';
-//import { HttpClientModule } from '@angular/common/http';
+import { NotesListComponent } from './pages/notes-list/notes-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    //HttpClientModule,
     GebruikersComponent,
+    NotesListComponent,
     MainLayoutComponent
   ],
   imports: [
