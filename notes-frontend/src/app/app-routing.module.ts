@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { GebruikersComponent } from './pages/gebruikers/gebruikers.component';
 import { MainLayoutComponent } from './pages/main-layout/main-layout.component';
 import { NotesListComponent } from './pages/notes-list/notes-list.component';
+import {NotesDetailsComponent} from './pages/notes-details/notes-details.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'notities/gebruikers/:gebruiker',
     component: NotesListComponent
+  },
+  {
+    path: 'notities/gebruikers/:gebruiker/notes-details',
+    component: NotesDetailsComponent
   }
 ];
 

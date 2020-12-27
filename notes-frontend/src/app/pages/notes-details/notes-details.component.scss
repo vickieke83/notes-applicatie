@@ -1,0 +1,22 @@
+.main-container {
+    display: flex;
+    max-width: 500px;
+    margin: auto;
+    padding-top: 50px;
+    flex-direction: column;
+}
+
+#controls {
+    width: 200px;
+    display: inline-block;
+    background: blue;
+    border-radius: 8px;
+    border: 1px solid #444444;
+    box-shadow: 0px 1px 1px #3606bd inset, 1px 1px 3px #222222;
+    color:white;
+    text-decoration: none;
+    text-align: center;
+    padding: 16px 32px 16px 32px;
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.4);
+    font-family: arial;
+}

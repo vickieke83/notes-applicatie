@@ -1,8 +1,8 @@
 <div class="main-container">
     <div *ngFor="let user of users">  
         
-        <a routerLink="/notities/gebruikers/Vicky" routerLinkActive="active">  <!--{{selectedUser.name}}-->
-            <button id="controls" (click)="onUserSelect(user)">{{user.name}}</button>
+        <a routerLink="/notities/gebruikers/{{selectedUser?.name}}" routerLinkActive="active">
+            <button id="controls" (click)="onUserSelect(user)">{{user?.name}}</button>
         </a>
 
         <button (click)="deleteUser(user)">
@@ -14,20 +14,4 @@
         <input [value]="naam" (change)="naam = $event.target.value"/>
         <button (click)="addUser()">Voeg gebruiker toe</button>
     </div>
-
-    <!-- <div *ngIf="selectedUser != null">
-        <div class="background"></div>
-        <div class="notities-paneel">
-            <app-notes-list></app-notes-list>
-            <div class="notities-header">
-                <h3>{{selectedUser.name}}</h3>
-                <img src="/assets/kruiske.svg" class="kruiske" (click)="selectedUser = null">
-            </div>
-            <div class="notities-content">
-                <div class="notitie" *ngFor="let note of selectedUserNotes">
-                    {{note.content}}
-                </div>
-            </div>
-        </div>    
-    </div> -->
 </div>

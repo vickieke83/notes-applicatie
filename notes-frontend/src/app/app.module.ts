@@ -1,22 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GebruikersComponent } from './pages/gebruikers/gebruikers.component';
 import { MainLayoutComponent } from './pages/main-layout/main-layout.component';
 import { NotesListComponent } from './pages/notes-list/notes-list.component';
+import { NotesDetailsComponent } from './pages/notes-details/notes-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GebruikersComponent,
     NotesListComponent,
-    MainLayoutComponent
+    MainLayoutComponent,
+    NotesDetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,10 +16,36 @@ app-note-card {
 }
 
 .note {
+    position: relative;
     box-shadow: 0px 0px 74px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     padding: 20px;
+    margin-bottom: 40px;
     &:not(:last-child) {
         margin-bottom: 20px;
     }
+}
+
+.kruiske {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 15px;
+    cursor: pointer;
+}
+
+#controls {
+    margin-bottom: 10px;
+    width: 240px;
+    display: inline-block;
+    background: blue;
+    border-radius: 8px;
+    border: 1px solid #444444;
+    box-shadow: 0px 1px 1px #3606bd inset, 1px 1px 3px #222222;
+    color:white;
+    text-decoration: none;
+    text-align: center;
+    padding: 16px 32px 16px 32px;
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.4);
+    font-family: arial;
 }

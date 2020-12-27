@@ -1,4 +1,7 @@
 <div class="main-container">
+    <a routerLink="notes-details" routerLinkActive="active">
+        <button id="controls">+ Voeg nieuwe notitie toe</button>
+    </a>
 
     <div class="search-bar-container">
         <div class="field">
@@ -13,6 +16,7 @@
 
     <div class="notes-list">
         <div class="note" *ngFor="let note of notes">
+            <img src="/assets/kruiske.svg" class="kruiske" (click)="deleteNote()">
             {{note.content}}
         </div>
     </div>
