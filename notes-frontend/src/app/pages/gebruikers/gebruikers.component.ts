@@ -40,7 +40,7 @@ export class GebruikersComponent implements OnInit {
 
   onUserSelect = (user: User) => {
     this.selectedUser = user;
-    this.selectedUserNotes = this.getNotes(user);
+    //this.selectedUserNotes = this.getNotes(user);
   }
 
   deleteUser = (user: User) => {
@@ -53,12 +53,12 @@ export class GebruikersComponent implements OnInit {
     })
   }
 
-  getNotes = (user: User) => {
-    /*this.backendService.getNotes(user.name).subscribe((data: User[])=>
+  /*getNotes = (user: User) => {
+    this.backendService.getNotes(user.name).subscribe((data: User[])=>
     {
        console.log(data);
        this.users = data;
-    })*/
+    })
     return [
       {
         id: 1,
@@ -81,7 +81,7 @@ export class GebruikersComponent implements OnInit {
         userId: 5
       }
     ]
-  }
+  }*/
 
 
 }
