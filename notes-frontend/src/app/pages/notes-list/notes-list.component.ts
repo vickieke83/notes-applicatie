@@ -20,9 +20,9 @@ export class NotesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      // this.backendService.getNotes(params["gebruiker"]).subscribe(data => { this.notes = data; })
-      this.notes = this.backendService.getNotes(params["gebruiker"])
-      console.log(this.notes)
+       this.backendService.getNotes(params["gebruiker"]).subscribe(data => { this.notes = data; 
+        console.log(data)
+      })      
     })
   }
 
