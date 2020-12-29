@@ -25,4 +25,18 @@ export class NotesListComponent implements OnInit {
       })      
     })
   }
+
+  deleteNote = (note: Note) => {
+    this.backendService.deleteNote(note.id, note.content).subscribe((result) => {
+      console.log(result);
+      // als success
+      this.notes.slice(this.notes.indexOf(note), 1)
+
+      this.ngOnInit();
+    })
+  }
+
+  editNote() {
+    
+  }
 }

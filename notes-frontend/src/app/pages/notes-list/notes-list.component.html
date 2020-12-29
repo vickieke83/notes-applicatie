@@ -16,12 +16,21 @@
 
     <div class="notes-list">
         <div class="note" *ngFor="let note of notes">
-            <span class="icon is-small is-pulled-right">
-            <button class="delete" (click)="deleteNote()"></button>
-            </span>
+            <div class="field is-grouped is-pulled-right">
+                <button>
+                <span class="icon is-small">
+                    <i class="fas fa-edit" (click)="editNote()"></i>
+                </span>
+                </button>
+                <button>
+                <span class="icon is-small">
+                    <i class="fas fa-trash-alt" (click)="deleteNote()"></i>
+                </span>
+                </button>
+            </div>
             {{note.content}}
         </div>
     </div>
-
 </div>
+
 
