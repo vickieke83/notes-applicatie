@@ -11,7 +11,7 @@
             <div class="field">
                 <label class="label">Notitie</label>
                 <div class="control">
-                    <textarea class="textarea"></textarea>
+                    <textarea class="textarea" [value]="content" (change)="content = $event.target.value"></textarea>
                 </div>
             </div>
             <div class="field is-grouped is-pulled-right">
@@ -19,7 +19,7 @@
                     <button class="button is-text" type="button" (click)="backClicked()">Cancel</button>
                 </div>
                 <div class="control">
-                    <button id="controls" type="submit">Save</button>
+                    <button id="controls" (click)="addContent()" type="submit">Save</button>
                 </div>
             </div>       
         </form>

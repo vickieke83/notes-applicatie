@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
+import { BackendService } from '../../backend.service'
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-notes-details',
@@ -8,7 +10,9 @@ import {Location} from '@angular/common';
 })
 export class NotesDetailsComponent implements OnInit {
 
-  constructor(private _location: Location) { }
+  content = '';
+
+  constructor(private route: ActivatedRoute, private _location: Location, private backendService: BackendService) { }
 
   ngOnInit(): void {
   }
@@ -17,4 +21,12 @@ export class NotesDetailsComponent implements OnInit {
     this._location.back();
   }
 
+  addContent = () => {
+    this.route.params.subscribe(params => {
+      this.backendService.addNote(params["gebruiker"], this.content).subscribe((result) => {
+        console.log(result);
+        this.ngOnInit();
+      })
+    })
+  }
 }

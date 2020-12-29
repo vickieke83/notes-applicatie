@@ -33,4 +33,12 @@ export class BackendService {
   getNotes = (name: string) => {
     return this.http.get<Note[]>(api_url + 'notes?name=' + name);
   } 
+
+  addNote = (name: string, content: string) => {
+    let body = {
+      name: name,
+      content: content
+    };
+    return this.http.post(api_url + `/notes`, body);
+  }
 }

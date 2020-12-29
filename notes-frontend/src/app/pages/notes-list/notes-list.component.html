@@ -16,9 +16,12 @@
 
     <div class="notes-list">
         <div class="note" *ngFor="let note of notes">
-            <img src="/assets/kruiske.svg" class="kruiske" (click)="deleteNote()">
+            <span class="icon is-small is-pulled-right">
+            <button class="delete" (click)="deleteNote()"></button>
+            </span>
             {{note.content}}
         </div>
     </div>
+
 </div>
 

@@ -17,7 +17,7 @@ export class GebruikersComponent implements OnInit {
   users: User[];
   naam = '';
   selectedUser = null;
-  selectedUserNotes = []
+  //selectedUserNotes = []
 
 
   constructor(private backendService: BackendService) { }
