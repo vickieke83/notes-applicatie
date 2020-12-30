@@ -1,4 +1,9 @@
 <div class="main-container">
+
+
+    <h2 class="headertekst">Notities van {{user}}</h2>
+    
+
     <a routerLink="notes-details" routerLinkActive="active">
         <button id="controls">+ Voeg nieuwe notitie toe</button>
     </a>
@@ -24,7 +29,7 @@
                 </button>
                 <button>
                 <span class="icon is-small">
-                    <i class="fas fa-trash-alt" (click)="deleteNote()"></i>
+                    <i class="fas fa-trash-alt" (click)="deleteNote(note)"></i>
                 </span>
                 </button>
             </div>

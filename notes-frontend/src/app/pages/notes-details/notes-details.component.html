@@ -3,9 +3,19 @@
         <form #noteForm="ngForm">
             <div class="field">
                 <label class="label">Categorie</label>
-                <div class="control">
-                    <input type="text" required class="input">
-                </div>
+                <!--<mat-selection-list #list [(ngModel)]="selectedOptions" (ngModelChange)="onNgModelChange($event)">-->
+                <!-- <mat-list-option *ngFor="let categorie of categorieArray" [value]="categorie">
+                    <p>{{categorie}}</p>
+                </mat-list-option> -->
+            <!--</mat-selection-list>-->
+                <select name="cars" id="cars" (change)="onSelectChange($event)" [selectedIndex]="selectedCategorieIndex">
+                    <option
+                        *ngFor="let categorie of categorieArray"
+                        [value]="categorie"
+                    >
+                        {{categorie}}
+                    </option>
+                </select>
             </div>
             <br>
             <div class="field">

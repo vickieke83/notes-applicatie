@@ -42,11 +42,7 @@ export class BackendService {
     return this.http.post(api_url + `/notes`, body);
   }
 
-  deleteNote = (id: number, content: string) => {
-    let body = {
-      id: id,
-      content: content
-    };
-    return this.http.get(api_url + 'remove?name=' + body);
+  deleteNote = (id: number) => {
+    return this.http.delete(api_url + 'notes?id=' + id);
   }
 }

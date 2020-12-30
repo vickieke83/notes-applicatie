@@ -14,20 +14,23 @@ type Note = {
   styleUrls: ['./notes-list.component.scss']
 })
 export class NotesListComponent implements OnInit {
+
   constructor(private route: ActivatedRoute, private backendService: BackendService) {}
 
   notes: Note[]
+  user: string;
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-       this.backendService.getNotes(params["gebruiker"]).subscribe(data => { this.notes = data; 
+      this.user = params["gebruiker"];
+      this.backendService.getNotes(params["gebruiker"]).subscribe(data => { this.notes = data; 
         console.log(data)
       })      
     })
   }
 
   deleteNote = (note: Note) => {
-    this.backendService.deleteNote(note.id, note.content).subscribe((result) => {
+    this.backendService.deleteNote(note.id).subscribe((result) => {
       console.log(result);
       // als success
       this.notes.slice(this.notes.indexOf(note), 1)
@@ -37,6 +40,7 @@ export class NotesListComponent implements OnInit {
   }
 
   editNote() {
+    
     
   }
 }
