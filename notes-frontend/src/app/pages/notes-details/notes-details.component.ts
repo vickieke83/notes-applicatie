@@ -34,7 +34,7 @@ export class NotesDetailsComponent implements OnInit {
       this.backendService.addNote(params["gebruiker"], this.content).subscribe((result) => {
         console.log(result);
         this.ngOnInit();
-        window.location = "/notities/gebruikers/" + params["gebruiker"];
+        window.location.href = "/notities/gebruikers/" + params["gebruiker"];
       })
     })
   }
