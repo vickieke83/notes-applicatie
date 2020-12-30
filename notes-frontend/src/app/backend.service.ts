@@ -5,6 +5,7 @@ const api_url = "https://scythe-striped-purchase.glitch.me/"
 
 type Note = {
   id: number;
+  //categorie: string;
   content: string;
   userId: number;
 }
@@ -41,6 +42,15 @@ export class BackendService {
     };
     return this.http.post(api_url + `/notes`, body);
   }
+
+  /*addNote = (name: string, categorie: string, content: string) => {
+    let body = {
+      name: name,
+      categorie: categorie,
+      content: content
+    };
+    return this.http.post(api_url + `/notes`, body);
+  }*/
 
   deleteNote = (id: number) => {
     return this.http.delete(api_url + 'notes?id=' + id);

@@ -17,7 +17,6 @@ export class GebruikersComponent implements OnInit {
   users: User[];
   naam = '';
   selectedUser = null;
-  //selectedUserNotes = []
 
 
   constructor(private backendService: BackendService) { }
@@ -40,17 +39,18 @@ export class GebruikersComponent implements OnInit {
 
   onUserSelect = (user: User) => {
     this.selectedUser = user;
-    //this.selectedUserNotes = this.getNotes(user);
   }
 
   deleteUser = (user: User) => {
-    this.backendService.deleteUser(user.name).subscribe((result) => {
-      console.log(result);
-      // als success
-      this.users.slice(this.users.indexOf(user), 1)
+    if (window.confirm("Ben je zeker dat je deze gebruiker wil verwijderen?")) {
+      this.backendService.deleteUser(user.name).subscribe((result) => {
+        console.log(result);
+        // als success
+        this.users.slice(this.users.indexOf(user), 1)
 
-      this.ngOnInit();
-    })
+        this.ngOnInit();
+      })
+    }
   }
 
   /*getNotes = (user: User) => {

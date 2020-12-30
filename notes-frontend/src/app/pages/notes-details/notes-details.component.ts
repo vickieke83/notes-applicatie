@@ -12,6 +12,7 @@ export class NotesDetailsComponent implements OnInit {
 
   categorieArray: string[] = ["Spoed", "Dringend", "Niet dringend"];
   selectedCategorieIndex: number;
+  categorie = '';
   content = '';
 
   constructor(private route: ActivatedRoute, private _location: Location, private backendService: BackendService) { }
@@ -38,4 +39,20 @@ export class NotesDetailsComponent implements OnInit {
       })
     })
   }
+
+  /*addContent = () => {
+    if(this.selectedCategorieIndex == 0)
+    {this.categorie = "spoed"}
+    else if(this.selectedCategorieIndex == 1)
+    {this.categorie = "dringend"}
+    else
+    {this.categorie = "niet dringend"}
+    this.route.params.subscribe(params => {
+      this.backendService.addNote(params["gebruiker"], this.categorie, this.content).subscribe((result) => {
+        console.log(result);
+        this.ngOnInit();
+        //window.location.href = "/notities/gebruikers/" + params["gebruiker"];
+      })
+    })
+  }*/
 }
