@@ -5,6 +5,7 @@ import { GebruikersComponent } from './pages/gebruikers/gebruikers.component';
 import { MainLayoutComponent } from './pages/main-layout/main-layout.component';
 import { NotesListComponent } from './pages/notes-list/notes-list.component';
 import {NotesDetailsComponent} from './pages/notes-details/notes-details.component';
+import { NotesEditComponent } from './pages/notes-edit/notes-edit';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'notities/gebruikers/:gebruiker/notes-details',
     component: NotesDetailsComponent
+  },
+  {
+    path: 'notities/gebruikers/:gebruiker/notes/:note/edit',
+    component: NotesEditComponent
   }
 ];
 

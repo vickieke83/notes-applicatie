@@ -4,7 +4,7 @@ import { BackendService } from 'src/app/backend.service';
 
 type Note = {
   id: number;
-  //categorie: string;
+  categorie: string;
   content: string;
   userId: number;
 }
@@ -21,6 +21,8 @@ export class NotesListComponent implements OnInit {
   notes: Note[] = new Array<Note>();
   user: string;
   filteredNotes: Note[] = new Array<Note>();
+  categorieArray: string[] = ["--", "Spoed", "Dringend", "Niet dringend"];
+  selectedCategorieIndex: number = 0;
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -44,11 +46,15 @@ export class NotesListComponent implements OnInit {
     }
   }
 
-  editNote() {
-    
-    
+  editNote(note: Note) {
+    this.route.params.subscribe(params => {
+      window.location.pathname = "/notities/gebruikers/" + params["gebruiker"] + "/notes/" + note.id + "/edit";
+      //window.location.pathname = "/notes-applicatie/notities/gebruikers/" + params["gebruiker"] + "/notes/" + note.id + "/edit";
+    })
   }
 
+
+//Zoekfunctie
   filter(query: string) {
     query = query.toLowerCase().trim();
 
@@ -64,6 +70,7 @@ export class NotesListComponent implements OnInit {
     this.filteredNotes = uniqueResults;
   }
 
+//functie binnen de zoekfunctie
   removeDuplicates(arr: Array<any>) : Array<any> {
     let uniqueResults: Set<any> = new Set<any>();
     arr.forEach(e => uniqueResults.add(e));
@@ -71,14 +78,28 @@ export class NotesListComponent implements OnInit {
     return Array.from(uniqueResults);
   }
 
+//functie binnen de zoekfunctie
   relevantNotes(query: string) : Array<Note> {
     query = query.toLowerCase().trim();
-    let relevantNotes = this.notes.filter(note => {
-      if (note.content.toLowerCase().includes(query)) {
-        return true;
-      }
-      return false;
-    })
+    let relevantNotes = this.notes.filter(note => (
+      note.content.toLowerCase().includes(query)
+    ))
     return relevantNotes;
+  }
+
+//filteren op categorie
+  onSelectChange = (event: any) => {
+    this.selectedCategorieIndex = this.categorieArray.indexOf(event.target.value);
+    
+    if (this.selectedCategorieIndex == 0) 
+    {
+      this.filteredNotes = this.notes;
+      return;
+    }
+    
+    this.filteredNotes = this.notes.filter(note => {
+      console.log(note.categorie, this.categorieArray[this.selectedCategorieIndex]);
+      return note.categorie.includes(this.categorieArray[this.selectedCategorieIndex])
+    })
   }
 }

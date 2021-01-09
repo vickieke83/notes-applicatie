@@ -26,6 +26,22 @@ app-note-card {
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 40px;
+
+    .categorie {
+        &[data-categorie="Niet dringend"]
+        {
+            color: green;
+        }
+        &[data-categorie="Spoed"]
+        {
+            color: red;
+        }
+        &[data-categorie="Dringend"]
+        {
+            color: orange;
+        }
+    }
+
     &:not(:last-child) {
         margin-bottom: 20px;
     }

@@ -1,13 +1,11 @@
 <div class="main-container">
 
-
     <h2 class="headertekst">Notities van {{user}}</h2>
     
-
     <a routerLink="notes-details" routerLinkActive="active">
         <button id="controls">+ Voeg nieuwe notitie toe</button>
     </a>
-
+    <br>
     <div class="search-bar-container">
         <div class="field">
             <p class="control has-icons-left">
@@ -18,13 +16,21 @@
             </p>
         </div>
     </div>
+    <br>
+    <div class="field">
+        <label class="label">Categorie
+        <select name="categorie" id="categorie" (change)="onSelectChange($event)" [selectedIndex]="selectedCategorieIndex">
+            <option *ngFor="let categorie of categorieArray" [value]="categorie">{{categorie}}</option>
+        </select>
+        </label>
+    </div>
 
     <div class="notes-list">
         <div class="note" *ngFor="let note of filteredNotes">
             <div class="field is-grouped is-pulled-right">
                 <button>
                 <span class="icon is-small">
-                    <i class="fas fa-edit" (click)="editNote()"></i>
+                    <i class="fas fa-edit" (click)="editNote(note)"></i>
                 </span>
                 </button>
                 <button>
@@ -33,6 +39,8 @@
                 </span>
                 </button>
             </div>
+            <span [attr.data-categorie]="note.categorie" class="categorie">{{note.categorie}}</span>
+            <br>
             {{note.content}}
         </div>
     </div>

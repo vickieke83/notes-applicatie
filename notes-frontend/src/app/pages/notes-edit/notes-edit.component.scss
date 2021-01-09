@@ -1,6 +1,13 @@
+.main-container {
+    display: flex;
+    max-width: 500px;
+    margin: auto;
+    padding-top: 50px;
+    flex-direction: column;
+}
+
 #controls {
-    margin: 10px;
-    width: 240px;
+    width: 200px;
     display: inline-block;
     background: blue;
     border-radius: 8px;
@@ -12,16 +19,3 @@
     padding: 16px 32px 16px 32px;
     text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.4);
 }
-
-.main-container {
-    display: flex;
-    max-width: 500px;
-    margin: auto;
-    padding-top: 50px;
-    flex-direction: column;
-}
-
-.addGebruikers {
-    margin: 10px;
-}
-

@@ -14,7 +14,7 @@
     </div>
 
     <div class="addGebruikers" *ngIf="addUser">
-        <input [value]="naam" (change)="naam = $event.target.value"/>
+        <input [value]="naam" (change)="naam = $event.target.value; $event.target.value = ''"/>
         <button (click)="addUser()">Voeg gebruiker toe</button>
     </div>
 </div>

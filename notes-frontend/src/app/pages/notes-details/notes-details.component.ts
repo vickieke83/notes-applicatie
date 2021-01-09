@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class NotesDetailsComponent implements OnInit {
 
   categorieArray: string[] = ["Spoed", "Dringend", "Niet dringend"];
-  selectedCategorieIndex: number;
+  selectedCategorieIndex: number = 0;
   categorie = '';
   content = '';
 
@@ -26,33 +26,17 @@ export class NotesDetailsComponent implements OnInit {
 
   onSelectChange = (event) => {
     this.selectedCategorieIndex = this.categorieArray.indexOf(event.target.value);
-    // om de waarde te achterhalen:
-    // this.categorieArray[this.selectedCategorieIndex]
   }
 
   addContent = () => {
+    console.log(this.categorieArray, this.selectedCategorieIndex, this.categorieArray[this.selectedCategorieIndex])
     this.route.params.subscribe(params => {
-      this.backendService.addNote(params["gebruiker"], this.content).subscribe((result) => {
+      this.backendService.addNote(params["gebruiker"], this.categorieArray[this.selectedCategorieIndex], this.content).subscribe((result) => {
         console.log(result);
         this.ngOnInit();
         window.location.href = "/notities/gebruikers/" + params["gebruiker"];
+        //window.location.href = "/notes-applicatie/notities/gebruikers/" + params["gebruiker"];
       })
     })
   }
-
-  /*addContent = () => {
-    if(this.selectedCategorieIndex == 0)
-    {this.categorie = "spoed"}
-    else if(this.selectedCategorieIndex == 1)
-    {this.categorie = "dringend"}
-    else
-    {this.categorie = "niet dringend"}
-    this.route.params.subscribe(params => {
-      this.backendService.addNote(params["gebruiker"], this.categorie, this.content).subscribe((result) => {
-        console.log(result);
-        this.ngOnInit();
-        //window.location.href = "/notities/gebruikers/" + params["gebruiker"];
-      })
-    })
-  }*/
 }
